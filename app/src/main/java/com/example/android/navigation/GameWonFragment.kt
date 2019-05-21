@@ -56,6 +56,11 @@ class GameWonFragment : Fragment() {
     override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater?.inflate(R.menu.winner_menu, menu)
+
+        // check if any supported activities exist to avoid crashing:
+        if (null == getShareIntent().resolveActivity(activity!!.packageManager)) {
+            menu?.findItem(R.id.share)?.setVisible(false)
+        }
     }
 
     private fun getShareIntent() : Intent {
@@ -72,7 +77,7 @@ class GameWonFragment : Fragment() {
         // Since sharing is very common, you can use ShareCompat helper and you don't need to know what Extra (i.e. EXTRA_TEXT) to use:
         return ShareCompat.IntentBuilder.from(activity)
                 .setText(getString(R.string.share_success_text, args.numCorrect, args.numQuestions))
-                .setType("text/plain")
+                //.setType("text/plain")
                 .intent // this finally builds the intent
 
     }
