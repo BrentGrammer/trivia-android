@@ -98,7 +98,7 @@ class GameFragment : Fragment() {
                         binding.invalidateAll()
                     } else {
                         // We've won!  Navigate to the gameWonFragment.
-                        Navigation.findNavController(view!!).navigate(GameFragmentDirections.actionGameFragmentToGameWonFragment(numQuestions, questionIndex))
+                        Navigation.findNavController(view!!).navigate(GameFragmentDirections.actionGameFragmentToGameWonFragment(numQuestions, questionIndex, "this is the thirdArg"))
                         //Navigation.createNavigateOnClickListener(GameFragmentDirections.actionGameFragmentToGameWonFragment(numQuestions, questionIndex))
                     }
                 } else {

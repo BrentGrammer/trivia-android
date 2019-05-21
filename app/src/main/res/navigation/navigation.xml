@@ -42,6 +42,9 @@
         <argument
             android:name="numCorrect"
             app:argType="integer" />
+        <argument
+            android:name="thirdArg"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/gameOverFragment2"
